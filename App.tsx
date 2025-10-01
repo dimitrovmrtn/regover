@@ -2,6 +2,18 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import CaCopyBox from './components/CaCopyBox';
 import FallingItems from './components/FallingItems';
+import song from './public/song.mp3';
+import clicksound from './public/clicksound.m4a';
+import clicksound2 from './public/clicksound.m4a';
+import image1 from './public/1.png';
+import image2 from './public/2.png';
+import image3 from './public/3.png';
+import image4 from './public/4.png';
+import image5 from './public/5.png';
+import image6 from './public/6.png';
+import image7 from './public/7.png';
+import image8 from './public/8.png';
+
 import { 
   API_KEY,
   API_URL,
@@ -18,7 +30,8 @@ interface DynamicImageProps {
   level: number;
 }
 const DynamicImage: React.FC<DynamicImageProps> = ({ level }) => {
-  const imageUrl = `./${level > 8 ? 8 : level}.png`;
+  const imagesArray = [image1, image2, image3, image4, image5, image6, image7, image8]
+  const imageUrl = level > 8 ? imagesArray[7] : imagesArray[level-1]
   const imageAlt = `Regovernment evolution level ${level}`;
   return (
     level &&
@@ -254,7 +267,7 @@ function App() {
     <>
       <style>{`
         html, body, #root, .app-cursor {
-          cursor: url('/cursor.png') 16 16, auto !important;
+          cursor: url('./cursor.png') 16 16, auto !important;
         }
         .flying-fffff {
           position: fixed;
@@ -298,9 +311,9 @@ function App() {
           100% { opacity: 0; }
         }
       `}</style>
-  <audio ref={audioRef} src="/song.mp3" loop autoPlay style={{ display: 'none' }} />
-  <audio ref={clickSoundRef} src="/clicksound.m4a" preload="auto" style={{ display: 'none' }} />
-  <audio ref={clickSound2Ref} src="/clicksound2.m4a" preload="auto" style={{ display: 'none' }} />
+  <audio ref={audioRef} src={song} loop autoPlay style={{ display: 'none' }} />
+  <audio ref={clickSoundRef} src={clicksound} preload="auto" style={{ display: 'none' }} />
+  <audio ref={clickSound2Ref} src={clicksound2} preload="auto" style={{ display: 'none' }} />
       <button
         onClick={() => setAudioOn(v => !v)}
         style={{

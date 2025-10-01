@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import cash from '../public/cash.png';
+import rocket from '../public/rocket.png';
 
 interface FallingItem {
   id: number;
@@ -120,7 +122,7 @@ const FallingItems: React.FC<FallingItemsProps> = ({ marketCap }) => {
       {items.map(item => (
         <img
           key={item.key}
-          src={item.type === 'rocket' ? './rocket.png' : './cash.png'}
+          src={item.type === 'rocket' ? rocket : cash}
           alt={item.type}
           style={{
             position: 'fixed',
