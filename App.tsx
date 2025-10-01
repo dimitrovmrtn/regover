@@ -173,9 +173,8 @@ function App() {
       
       if (typeof data.usdPrice === 'number') {
          const mc = data.usdPrice * TOTAL_SUPPLY;
-        //const mc = 60;
         setMarketCap(mc);
-        const levelFromMC = Math.floor(mc > MARKET_CAP_THRESHOLD ? mc / MARKET_CAP_THRESHOLD : 1) + 1;
+        const levelFromMC = Math.floor(mc > MARKET_CAP_THRESHOLD ? mc / MARKET_CAP_THRESHOLD : 0) + 1;
         setImageLevel(Math.max(levelFromMC)); // Ensure level is at least 1
         setError(null); // Clear error on success
       } else {
@@ -369,9 +368,11 @@ function App() {
               transition: 'color 0.5s',
               textAlign: 'center',
             }}>
-              The coin that evolves.
+              Pump the chart to recover the government.
             </p>
           </header>
+          <CaCopyBox address={TOKEN_ADDRESS} />
+          <br />
           <main>
             <div className="bg-white border border-gray-200 p-6 rounded-xl shadow-lg">
               <div className="flex justify-center items-center mb-4 gap-3 relative" style={{ minHeight: '110px' }}>
@@ -391,7 +392,6 @@ function App() {
                    <DynamicImage level={imageLevel} />
               )}
             </div>
-            <CaCopyBox address={TOKEN_ADDRESS} />
           </main>
           <footer className="text-center mt-12 text-sm" style={{
             background: getCapColor(marketCap).startsWith('linear-gradient') ? getCapColor(marketCap) : undefined,
