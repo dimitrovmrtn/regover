@@ -373,10 +373,7 @@ function App() {
                 </div>
               </div>
               {error && !marketCap ? (
-                <div className="text-center text-red-400 bg-red-100 p-4 rounded-lg my-8">
-                  <p className="font-semibold">Failed to load data:</p>
-                  <p className="text-sm mt-1">{error}</p>
-                </div>
+                null
               ) : (
                    <DynamicImage level={imageLevel} />
               )}
