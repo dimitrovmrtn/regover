@@ -2,17 +2,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import CaCopyBox from './components/CaCopyBox';
 import FallingItems from './components/FallingItems';
-// import song from './public/song.mp3';
-// import clicksound from './public/clicksound.m4a';
-// import clicksound2 from './public/clicksound.m4a';
-// import image1 from './public/1.png';
-// import image2 from './public/2.png';
-// import image3 from './public/3.png';
-// import image4 from './public/4.png';
-// import image5 from './public/5.png';
-// import image6 from './public/6.png';
-// import image7 from './public/7.png';
-// import image8 from './public/8.png';
 
 import { 
   API_KEY,
@@ -222,6 +211,7 @@ function App() {
           ahh: isAhh,
         },
       ]);
+      audioRef.current.play().catch(() => {});
       setTimeout(() => {
         setFlyingTexts(prev => prev.filter(t => t.id !== id));
       }, 1200);
@@ -261,7 +251,7 @@ function App() {
       audioRef.current.volume = 1;
       audioRef.current.play().catch(() => {});
     }
-  }, []);
+  }, [audioRef]);
 
   return (
     <>
