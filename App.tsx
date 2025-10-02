@@ -70,7 +70,7 @@ const MarketCapDisplay: React.FC<MarketCapDisplayProps> = ({ marketCap }) => {
               backgroundClip: color.startsWith('linear-gradient') ? 'text' : undefined,
               fontFamily: 'Montserrat, Arial, sans-serif'
             }}>
-                Current Market Cap
+                {marketCap ? "Current Market Cap" : "Updating CA, please wait a minute."}
             </h2>
             <p
               className={
@@ -367,6 +367,7 @@ function App() {
                 <div className="flex-1 flex justify-center">
                   <MarketCapDisplay marketCap={marketCap} />
                 </div>
+
                 <div style={{ width: 32, height: 32, position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {isLoading ? <LoadingSpinner /> : null}
                 </div>
