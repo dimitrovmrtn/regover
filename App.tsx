@@ -344,7 +344,7 @@ function App() {
                 width: '100%',
               }}
             >
-              $REGOVER
+              $RECOVER
             </h1>
             <p className="mt-2 text-xl font-medium font-display" style={{
               fontFamily: 'Montserrat, Arial, sans-serif',
