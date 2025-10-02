@@ -10,7 +10,6 @@ import {
   TOTAL_SUPPLY,
   UPDATE_INTERVAL_MS,
   MARKET_CAP_THRESHOLD,
-  MAX_IMAGE_LEVEL
 } from './constants';
 import type { MoralisPriceResponse } from './types';
 
@@ -19,8 +18,6 @@ interface DynamicImageProps {
   level: number;
 }
 const DynamicImage: React.FC<DynamicImageProps> = ({ level }) => {
-  // const imagesArray = [image1, image2, image3, image4, image5, image6, image7, image8]
-  // const imageUrl = level > 8 ? imagesArray[7] : imagesArray[level-1]
   const imageUrl = level > 8 ? './8.png' : `./${level}.png`
   const imageAlt = `Regovernment evolution level ${level}`;
   return (
